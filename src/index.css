@@ -1,68 +1,148 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* 
+  Design System - Minimal Dark Portfolio
+  Calm, professional, recruiter-friendly
+  Inspired by clean portfolio aesthetics
+*/
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    /* Dark neutral background - not pure black */
+    --background: 220 15% 10%;
+    --foreground: 210 20% 92%;
+
+    /* Card surfaces - slightly lighter than background */
+    --card: 220 14% 13%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 14% 13%;
+    --popover-foreground: 210 20% 92%;
+
+    /* Muted teal accent - calm and professional */
+    --primary: 180 35% 50%;
+    --primary-foreground: 220 15% 10%;
+
+    /* Secondary - subtle surface */
+    --secondary: 220 14% 16%;
+    --secondary-foreground: 210 20% 85%;
+
+    /* Muted text and surfaces */
+    --muted: 220 12% 18%;
+    --muted-foreground: 215 15% 60%;
+
+    /* Accent - same as primary for consistency */
+    --accent: 180 35% 50%;
+    --accent-foreground: 220 15% 10%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 20% 98%;
+
+    /* Borders and inputs */
+    --border: 220 12% 20%;
+    --input: 220 12% 20%;
+    --ring: 180 35% 50%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar (if needed) */
+    --sidebar-background: 220 15% 8%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 180 35% 50%;
+    --sidebar-primary-foreground: 220 15% 10%;
+    --sidebar-accent: 220 14% 16%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 12% 18%;
+    --sidebar-ring: 180 35% 50%;
   }
-  a:hover {
-    color: #747bff;
+
+  /* No dark mode - single dark theme */
+  .dark {
+    --background: 220 15% 10%;
+    --foreground: 210 20% 92%;
+    --card: 220 14% 13%;
+    --card-foreground: 210 20% 92%;
+    --popover: 220 14% 13%;
+    --popover-foreground: 210 20% 92%;
+    --primary: 180 35% 50%;
+    --primary-foreground: 220 15% 10%;
+    --secondary: 220 14% 16%;
+    --secondary-foreground: 210 20% 85%;
+    --muted: 220 12% 18%;
+    --muted-foreground: 215 15% 60%;
+    --accent: 180 35% 50%;
+    --accent-foreground: 220 15% 10%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 12% 20%;
+    --input: 220 12% 20%;
+    --ring: 180 35% 50%;
+    --sidebar-background: 220 15% 8%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 180 35% 50%;
+    --sidebar-primary-foreground: 220 15% 10%;
+    --sidebar-accent: 220 14% 16%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 12% 18%;
+    --sidebar-ring: 180 35% 50%;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  /* Custom selection color */
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
+}
+
+@layer components {
+  /* Section styling */
+  .section {
+    @apply py-20 md:py-28;
+  }
+
+  .section-title {
+     @apply text-base md:text-lg font-semibold uppercase tracking-widest text-primary mb-12;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-300 hover:bg-secondary/50 hover:border-primary/30;
+  }
+
+  /* Tech tag styling */
+  .tech-tag {
+    @apply inline-flex items-center px-3 py-1 text-xs font-medium rounded-full 
+           bg-primary/10 text-primary border border-primary/20;
+  }
+
+  /* Timeline connector */
+  .timeline-dot {
+    @apply w-2 h-2 rounded-full bg-primary;
+  }
+
+  .timeline-line {
+    @apply w-px bg-border;
   }
 }
