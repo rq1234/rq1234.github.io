@@ -4,9 +4,9 @@ const experiences = [
     company: "Amili Singapore",
     period: "May 2025 – Aug 2025",
     bullets: [
-      "Built automated data pipeline using PostgreSQL, AWS S3, and OpenAI embeddings to vectorise 10,000+ documents for semantic search",
+      "Built automated data pipeline using PostgreSQL, AWS S3, and OpenAI embeddings to vectorise 10000+ documents for semantic search",
       "Trained XGBoost models with SHAP integration for risk classification and interpretable feature attribution",
-      "Deployed full-stack chatbot with React and AWS EC2, supporting RAG-based Q&A and reducing manual search time by 25%"
+      "Deployed full-stack chatbot with React and AWS EC2, supporting RAG-based Q&A and reducing manual search time"
     ]
   },
   {
@@ -31,7 +31,7 @@ const experiences = [
     company: "GAO Capital Singapore",
     period: "Feb 2024 – Apr 2024",
     bullets: [
-      "Built dashboards using Bloomberg API to track Indian option volatility, reducing data review time by 30%",
+      "Built dashboards using Bloomberg API to track Indian option volatility, reducing data review time",
       "Conducted time series analysis on Nikkei 225 to identify seasonality patterns for trading signals",
       "Backtested quantitative strategies computing Sharpe ratio and drawdown metrics"
     ]
